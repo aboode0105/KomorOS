@@ -3,217 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KomorOS - Лучший ROM всех времен!</title>
+    <title>TechStore - Продажа телефонов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
+        :root {
+            --primary: #4a6cf7;
+            --secondary: #6a11cb;
+            --dark: #1d2144;
+            --light: #f5f8ff;
+            --gray: #e7e7e7;
+            --text: #333;
+        }
+
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
         }
-        
+
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 15px;
         }
-        
+
+        /* Header Styles */
         header {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        .logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
-            border-radius: 20px;
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.3);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-        
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes glow {
-            from {
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            }
-            to {
-                text-shadow: 2px 2px 20px rgba(255,255,255,0.5);
-            }
-        }
-        
-        .tagline {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .description {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .description h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .description p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-        
-        .feature-card {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 15px 40px;
-            font-size: 1.3rem;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
-            margin: 30px 0;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .contact-info i {
+            margin-right: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(29, 33, 68, 0.8), rgba(29, 33, 68, 0.8)), url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(74, 108, 247, 0.4);
         }
-        
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 108, 247, 0.6);
         }
-        
-        footer {
+
+        /* Phones Section */
+        .section-title {
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            margin: 60px 0 40px;
+            font-size: 36px;
+            color: var(--dark);
+            position: relative;
         }
-        
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .phones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .phone-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .phone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .phone-image {
+            height: 200px;
+            background-color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .phone-image img {
+            max-width: 80%;
+            max-height: 80%;
+            transition: transform 0.5s ease;
+        }
+
+        .phone-card:hover .phone-image img {
+            transform: scale(1.1);
+        }
+
+        .phone-info {
+            padding: 20px;
+        }
+
+        .phone-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .phone-specs {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .phone-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background: linear-gradient(to right, #3a5ce5, #5a0dc5);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: #0088cc;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .telegram-link i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .telegram-link:hover {
+            background-color: #0077b5;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #aaa;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            .header-content {
+                flex-direction: column;
+                text-align: center;
             }
-            
-            .tagline {
-                font-size: 1.3rem;
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            
-            .description h2 {
-                font-size: 2rem;
+
+            nav ul li {
+                margin: 5px 10px;
             }
-            
-            .logo {
-                width: 150px;
-                height: 150px;
+
+            .contact-info {
+                margin-top: 15px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <!-- Ваше изображение добавлено здесь -->
-            <img src="IMG_20251002_235817_739.jpg" alt="KomorOS Logo" class="logo">
-            <h1>KomorOS</h1>
-            <h2>ВНИМАНИЕ! ДАННАЯ БУТАНИМАЦИЯ ПРЕДНАЗНАЧЕНА ДЛЯ ТЕЛЕФОНОВ С РАЗРЕШЕНИЕМ 720×1612 ПИКСЕЛЕЙ! Оптимизированна для слабых устройств. </h2>
-            <div class="tagline">Революция в мире мобильных прошивок</div>
-            <a href="https://mega.nz/file/3phlSCaI#K2XP6EMmzRObm0eT3tuzWLHqztdEpIPylBhBDl1Zl9U" class="download-btn">Скачать Бут Анимацию</a>
-        </header>
-        
-        <section class="description">
-            <h2>Лучший ROM всех времен!</h2>
-            <p>KomorOS - это инновационная кастомная прошивка, созданная для тех, кто ценит скорость, стабильность и уникальность. Наша команда разработчиков создала идеальное сочетание производительности и красоты.</p>
-            <p>Почувствуйте мощь следующего поколения мобильных операционных систем с непревзойденной оптимизацией и эксклюзивными функциями.</p>
-        </section>
-        
-        <section class="features">
-            <div class="feature-card">
-                <h3>⚡ Молниеносная скорость</h3>
-                <p>Оптимизированное ядро и улучшенная управление памятью обеспечивают невероятную производительность</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-mobile-alt"></i>
+                    TechStore
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#phones">Телефоны</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="contact-info">
+                    <i class="fab fa-telegram"></i>
+                    Telegram: @SM8650
+                </div>
             </div>
-            
-            <div class="feature-card">
-                <h3>🔋 Идеальная автономность</h3>
-                <p>Умное управление питанием увеличивает время работы устройства до 40%</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Лучшие телефоны по доступным ценам</h1>
+            <p>Мы предлагаем широкий ассортимент смартфонов от ведущих брендов с гарантией качества и быстрой доставкой</p>
+            <a href="#phones" class="btn">Смотреть каталог</a>
+        </div>
+    </section>
+
+    <!-- Phones Section -->
+    <section id="phones">
+        <div class="container">
+            <h2 class="section-title">Наши телефоны</h2>
+            <div class="phones-grid">
+                <!-- Phone 1 -->
+                <div class="phone-card">
+                    <div class="phone-image">
+                        <img src="https://cdn.thewirecutter.com/wp-content/media/2023/10/androidphones-2048px-4843.jpg?auto=webp&quality=75&width=1024" alt="Samsung Galaxy S23">
+                    </div>
+                    <div class="phone-info">
+                        <h3 class="phone-name">Samsung Galaxy S23</h3>
+                        <p class="phone-specs">6.1" Dynamic AMOLED, 128GB, 8GB RAM, Triple Camera</p>
+                        <div class="phone-price">$799</div>
+                        <a href="#" class="buy-btn">Купить сейчас</a>
+                    </div>
+                </div>
+
+                <!-- Phone 2 -->
+                <div class="phone-card">
+                    <div class="phone-image">
+                        <img src="https://cdn.thewirecutter.com/wp-content/media/2023/09/iphone-2048px-0913.jpg?auto=webp&quality=75&width=1024" alt="iPhone 14 Pro">
+                    </div>
+                    <div class="phone-info">
+                        <h3 class="phone-name">iPhone 14 Pro</h3>
+                        <p class="phone-specs">6.1" Super Retina XDR, 128GB, A16 Bionic, Triple Camera</p>
+                        <div class="phone-price">$999</div>
+                        <a href="#" class="buy-btn">Купить сейчас</a>
+                    </div>
+                </div>
+
+                <!-- Phone 3 -->
+                <div class="phone-card">
+                    <div class="phone-image">
+                        <img src="https://cdn.thewirecutter.com/wp-content/media/2023/10/androidphones-2048px-0948.jpg?auto=webp&quality=75&width=1024" alt="Google Pixel 7">
+                    </div>
+                    <div class="phone-info">
+                        <h3 class="phone-name">Google Pixel 7</h3>
+                        <p class="phone-specs">6.3" OLED, 128GB, 8GB RAM, Google Tensor G2</p>
+                        <div class="phone-price">$599</div>
+                        <a href="#" class="buy-btn">Купить сейчас</a>
+                    </div>
+                </div>
+
+                <!-- Phone 4 -->
+                <div class="phone-card">
+                    <div class="phone-image">
+                        <img src="https://cdn.thewirecutter.com/wp-content/media/2023/10/20231011_AndroidBudget_2048px-02542.jpg?auto=webp&quality=75&width=1024" alt="Xiaomi Redmi Note 12">
+                    </div>
+                    <div class="phone-info">
+                        <h3 class="phone-name">Xiaomi Redmi Note 12</h3>
+                        <p class="phone-specs">6.67" AMOLED, 128GB, 6GB RAM, Snapdragon 685</p>
+                        <div class="phone-price">$299</div>
+                        <a href="#" class="buy-btn">Купить сейчас</a>
+                    </div>
+                </div>
+
+                <!-- Phone 5 -->
+                <div class="phone-card">
+                    <div class="phone-image">
+                        <img src="https://cdn.thewirecutter.com/wp-content/media/2023/10/androidphones-2048px-4845.jpg?auto=webp&quality=75&width=1024" alt="OnePlus 11">
+                    </div>
+                    <div class="phone-info">
+                        <h3 class="phone-name">OnePlus 11</h3>
+                        <p class="phone-specs">6.7" Fluid AMOLED, 256GB, 16GB RAM, Snapdragon 8 Gen 2</p>
+                        <div class="phone-price">$699</div>
+                        <a href="#" class="buy-btn">Купить сейчас</a>
+                    </div>
+                </div>
+
+                <!-- Phone 6 -->
+                <div class="phone-card">
+                    <div class="phone-image">
+                        <img src="https://cdn.thewirecutter.com/wp-content/media/2023/10/20231011_AndroidBudget_2048px-02544.jpg?auto=webp&quality=75&width=1024" alt="Samsung Galaxy A54">
+                    </div>
+                    <div class="phone-info">
+                        <h3 class="phone-name">Samsung Galaxy A54</h3>
+                        <p class="phone-specs">6.4" Super AMOLED, 128GB, 8GB RAM, Exynos 1380</p>
+                        <div class="phone-price">$449</div>
+                        <a href="#" class="buy-btn">Купить сейчас</a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="feature-card">
-                <h3>🎨 Уникальный дизайн</h3>
-                <p>Эксклюзивный интерфейс с сотнями тем и возможностями кастомизации</p>
-            </div>
-            
-            <div class="feature-card">
-                <h3>🛡️ Максимальная безопасность</h3>
-                <p>Регулярные обновления безопасности и расширенные настройки приватности</p>
-            </div>
-            
-            <div class="feature-card">
-                <h3>📱 Широкая поддержка</h3>
-                <p>Совместимость с устройствами от различных производителей</p>
-            </div>
-            
-            <div class="feature-card">
-                <h3>🆓 Полностью бесплатно</h3>
-                <p>Никаких скрытых платежей и подписок. Разработано с любовью для сообщества</p>
-            </div>
-        </section>
-        
-        <section id="download" class="description">
-            <h2>Готовы к обновлению?</h2>
-            <p>Присоединяйтесь к пользователям, которые уже выбрали KomorOS</p>
-            <a href="#" class="download-btn">Скачать KomorOS</a>
-            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.8;">Версия 1.2.0 BETA | Последнее обновление: 03.10.2025</p>
-        </section>
-        
-        <footer>
-            <p>© 2025 KomorOS Project. Все права защищены.</p>
-            <p style="margin-top: 10px; opacity: 0.7;">Связь с разработчиком: tg @SM8650</p>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Свяжитесь со мной для заказа</h2>
+            <p>Если у вас есть вопросы или вы хотите сделать заказ, напишите мне в Telegram. Я отвечу в кратчайшие сроки!</p>
+            <a href="https://t.me/SM8650" class="telegram-link" target="_blank">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 TechStore. Все права защищены.</p>
+            <p>Telegram для связи: @SM8650</p>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Обработка кнопок "Купить сейчас"
+        document.querySelectorAll('.buy-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const phoneName = this.closest('.phone-card').querySelector('.phone-name').textContent;
+                const phonePrice = this.closest('.phone-card').querySelector('.phone-price').textContent;
+                
+                // Здесь можно добавить логику для оформления заказа
+                // В данном случае просто показываем сообщение
+                alert(`Вы выбрали ${phoneName} за ${phonePrice}. Для оформления заказа свяжитесь со мной в Telegram: @SM8650`);
+            });
+        });
+    </script>
 </body>
 </html>
